@@ -1,0 +1,353 @@
+{
+	"info": {
+		"_postman_id": "3a77a5bf-ce69-4b55-8c0c-5d92fb739d37",
+		"name": "Biblioteca API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "6007103",
+		"_collection_link": "https://speeding-star-550510.postman.co/workspace/New-Team-Workspace~27b937d6-3706-406e-9804-e5be714a842a/collection/6007103-3a77a5bf-ce69-4b55-8c0c-5d92fb739d37?action=share&source=collection_link&creator=6007103"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "username",
+									"value": "dianita",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "raquel",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{LOCAL_HOST}}/biblioteca-api/web/auth/login",
+							"host": [
+								"{{LOCAL_HOST}}"
+							],
+							"path": [
+								"biblioteca-api",
+								"web",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "username",
+									"value": "dianita",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "raquel",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{LOCAL_HOST}}/biblioteca-api/web/index.php/auth/register",
+							"host": [
+								"{{LOCAL_HOST}}"
+							],
+							"path": [
+								"biblioteca-api",
+								"web",
+								"index.php",
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Book",
+			"item": [
+				{
+					"name": "create",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJiaWJsaW90ZWNhLWFwaSIsImF1ZCI6ImJpYmxpb3RlY2EtdXN1YXJpb3MiLCJpYXQiOjE3Mzk1MDI2NTUsImV4cCI6MTczOTUwNDQ1NSwidXNlcl9pZCI6IjY3YWU5NWJkM2E0YzkxZjcwMjAyZjA4MiJ9.5ABwFTLiKNdTK8hDFrGlth53kZddo9-AdyHX1e4PPbc",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"titulo\": \"Las mujeres \",\r\n    \"autores\": [\"John Gray\"],\r\n    \"anio_publicacion\": 1992,\r\n    \"descripcion\": \"Un libro sobre las diferencias entre hombres y mujeres en las relaciones.\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{LOCAL_HOST}}/biblioteca-api/web/libro",
+							"host": [
+								"{{LOCAL_HOST}}"
+							],
+							"path": [
+								"biblioteca-api",
+								"web",
+								"libro"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "libro",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{LOCAL_HOST}}/biblioteca-api/web/libro",
+							"host": [
+								"{{LOCAL_HOST}}"
+							],
+							"path": [
+								"biblioteca-api",
+								"web",
+								"libro"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "libro-id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{LOCAL_HOST}}/biblioteca-api/web/libros/67ae8b0bb6ac445a0c4d7943",
+							"host": [
+								"{{LOCAL_HOST}}"
+							],
+							"path": [
+								"biblioteca-api",
+								"web",
+								"libros",
+								"67ae8b0bb6ac445a0c4d7943"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"titulo\": \"Cien años de soledad edit\",\r\n    \"autores\": [\r\n        \"Gabriel García Márquez\"\r\n    ],\r\n    \"anio_publicacion\": 1967,\r\n    \"descripcion\": \"La historia de la familia Buendía en el pueblo de Macondo.\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{LOCAL_HOST}}/biblioteca-api/web/libro/67ae8b0bb6ac445a0c4d7943",
+							"host": [
+								"{{LOCAL_HOST}}"
+							],
+							"path": [
+								"biblioteca-api",
+								"web",
+								"libro",
+								"67ae8b0bb6ac445a0c4d7943"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJiaWJsaW90ZWNhLWFwaSIsImF1ZCI6ImJpYmxpb3RlY2EtdXN1YXJpb3MiLCJpYXQiOjE3Mzk1MDM4NzMsImV4cCI6MTczOTUwNTY3MywidXNlcl9pZCI6IjY3YWU5NWJkM2E0YzkxZjcwMjAyZjA4MiJ9.OyFCE5SD6xLzcSiUvvjhR7zcT6D1zm1u-GQj3U01WG0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{LOCAL_HOST}}/biblioteca-api/web/libros/67ae8b0bb6ac445a0c4d7943",
+							"host": [
+								"{{LOCAL_HOST}}"
+							],
+							"path": [
+								"biblioteca-api",
+								"web",
+								"libros",
+								"67ae8b0bb6ac445a0c4d7943"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Autor",
+			"item": [
+				{
+					"name": "autor",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{LOCAL_HOST}}/biblioteca-api/web/autor",
+							"host": [
+								"{{LOCAL_HOST}}"
+							],
+							"path": [
+								"biblioteca-api",
+								"web",
+								"autor"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "autor-id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{LOCAL_HOST}}/biblioteca-api/web/autores/67ae8b13b6ac445a0c4d7944",
+							"host": [
+								"{{LOCAL_HOST}}"
+							],
+							"path": [
+								"biblioteca-api",
+								"web",
+								"autores",
+								"67ae8b13b6ac445a0c4d7944"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\": \"Juan Pérez\",\r\n    \"nacionalidad\": \"Argentina\",\r\n    \"fecha_nacimiento\": \"1985-05-10\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{LOCAL_HOST}}/biblioteca-api/web/autores",
+							"host": [
+								"{{LOCAL_HOST}}"
+							],
+							"path": [
+								"biblioteca-api",
+								"web",
+								"autores"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "{{LOCAL_HOST}}/biblioteca-api/web/autores/67ae8b13b6ac445a0c4d7944",
+							"host": [
+								"{{LOCAL_HOST}}"
+							],
+							"path": [
+								"biblioteca-api",
+								"web",
+								"autores",
+								"67ae8b13b6ac445a0c4d7944"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJiaWJsaW90ZWNhLWFwaSIsImF1ZCI6ImJpYmxpb3RlY2EtdXN1YXJpb3MiLCJpYXQiOjE3Mzk1MDM4NzMsImV4cCI6MTczOTUwNTY3MywidXNlcl9pZCI6IjY3YWU5NWJkM2E0YzkxZjcwMjAyZjA4MiJ9.OyFCE5SD6xLzcSiUvvjhR7zcT6D1zm1u-GQj3U01WG0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{LOCAL_HOST}}/biblioteca-api/web/autores/67ae8b13b6ac445a0c4d7944",
+							"host": [
+								"{{LOCAL_HOST}}"
+							],
+							"path": [
+								"biblioteca-api",
+								"web",
+								"autores",
+								"67ae8b13b6ac445a0c4d7944"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
